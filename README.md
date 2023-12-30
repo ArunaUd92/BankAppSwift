@@ -1,5 +1,5 @@
 # BankAppSwift
-Simple iOS app written in Swift 5
+The simple iOS app is written in Swift 5.
 
 
 ## Supports
@@ -11,11 +11,10 @@ iOS 15.0+
 
 BankAppSwift use number of open source projects to work properly
 
-[RxSwift](https://github.com/ReactiveX/RxSwift)
-[Alamofire](https://github.com/Alamofire/Alamofire)
-[IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager)
-[SwiftMessages](https://github.com/SwiftKickMobile/SwiftMessages)
-
+* [RxSwift](https://github.com/ReactiveX/RxSwift)
+* [Alamofire](https://github.com/Alamofire/Alamofire)
+* [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager)
+* [SwiftMessages](https://github.com/SwiftKickMobile/SwiftMessages)
 
 
 
