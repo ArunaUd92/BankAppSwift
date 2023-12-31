@@ -21,10 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         var viewController: UIViewController!
         
-        if let userDefaults = UserDefaults(suiteName: "group.com.ABCBankMobile"),
-           let accessLevel = userDefaults.string(forKey: "access_level") {
-            if (accessLevel == "2") {
-                
+        if let userDefaults = UserSessionManager.sharedInstance.retrieveToken() {
+        let accessLevel = userDefaults.access_token
+            if accessLevel != "" {
                 // LASession.sharedInstance.restoreUser()
                 viewController = mainStoryboard.instantiateViewController(withIdentifier: "DashboardTabBarController") as! DashboardTabBarController
                 

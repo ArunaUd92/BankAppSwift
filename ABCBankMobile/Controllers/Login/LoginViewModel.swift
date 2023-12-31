@@ -17,9 +17,6 @@ class LoginViewModel{
     fileprivate let bag = DisposeBag()
     fileprivate var commonViewModel = CommonViewModel()
     
-//    init(commonViewModel:CommonViewModel) {
-//        self.commonViewModel = commonViewModel
-//    }
     
     // MARK: Functions
     // login validation
@@ -30,7 +27,7 @@ class LoginViewModel{
         }
         
         if !ValidatorHelper.validateEmail(email: email){
-            validationHandler("Email is invalid", false)
+            validationHandler("Email is invalid.", false)
             return
         }
         
@@ -43,8 +40,8 @@ class LoginViewModel{
     }
     
     
-    func userLoginInfo(onCompleted:@escaping(_ statusCode: Int, Observable<Error?>)->Void){
-        commonViewModel.loginResponse { (loginDataObservable) in
+    func userLoginInfo(onCompleted:@escaping(_ statusCode: Int?, Observable<Error?>)->Void){
+        commonViewModel.loginResponse(email: email ?? "", password: password ?? "") { (loginDataObservable) in
             loginDataObservable.subscribe(onNext: { (loginData,error) in
                 if let loginInfo = loginData{
                     if loginInfo.success {
@@ -60,5 +57,4 @@ class LoginViewModel{
             }).disposed(by: self.bag)
         }
     }
-
 }

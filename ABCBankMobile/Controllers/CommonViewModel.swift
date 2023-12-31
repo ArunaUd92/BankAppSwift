@@ -1,49 +1,175 @@
 //
 //  CommonViewModel.swift
-//  YTS
+//  ABCBankMobile
 //
-//  Created by Sajith Konara on 5/2/20.
-//  Copyright © 2020 Sajith Konara. All rights reserved.
-//
+//  Created by Aruna Udayanga on 29/12/2023.
 
 import Foundation
 import RxSwift
 import Alamofire
 
+fileprivate var bag = DisposeBag()
+fileprivate let networkLayer = NetworkLayerIMPL()
+fileprivate let translationLayer = TranslationLayer()
+
 class CommonViewModel{
-    
-    fileprivate var bag = DisposeBag()
-   // fileprivate var modelLayer:ModelLayerIMPL
-    fileprivate let networkLayer = NetworkLayerIMPL()
-    fileprivate let translationLayer = TranslationLayer()
-    
-//    init(modelLayer:ModelLayerIMPL) {
-//        self.modelLayer = modelLayer
-//    }
-    
-     func loginResponse(onCompleted:@escaping (_ observale:Observable<(UserResponse<UserData>?,Error?)>)->Void){
+
+    func loginResponse(email: String, password: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserData>?,Error?)>)->Void){
         let url = URL(string: String(format: URLConstants.Api.Path.postLogin).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         
-        let params: Parameters = ["email": "user4@mail.com", "password": "123456",]
-       // let headers: HTTPHeaders = [:]
+        let params: Parameters = ["email": email, "password": password]
         
         networkLayer.getResponseJSON(for: url!, method: .post, params: params) { dataObservable in
             dataObservable.subscribe(onNext: { (data,error) in
                 if let responseData = data{
-                    self.translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<UserData>?, error: Error?)>) in
+                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<UserData>?, error: Error?)>) in
                         observable.subscribe(onNext: { response, error in
                             if let response = response{
                                 onCompleted(Observable.just((response,nil)))
                             }else{
                                 onCompleted(Observable.just((nil,error!)))
                             }
-                        }).disposed(by: self.bag)
+                        }).disposed(by: bag)
                     }
                 }else{
                     onCompleted(Observable.just((nil,error!)))
                 }
-            }).disposed(by: self.bag)
+            }).disposed(by: bag)
         }
     }
+    
+    func registerResponse(email: String, password: String, name: String, surname: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserData>?,Error?)>)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.postRegister).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+        
+        let params: Parameters = ["email": email, "password": password, "name": name, "surname": surname]
+
+        networkLayer.getResponseJSON(for: url!, method: .post, params: params) { dataObservable in
+            dataObservable.subscribe(onNext: { (data,error) in
+                if let responseData = data{
+                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<UserData>?, error: Error?)>) in
+                        observable.subscribe(onNext: { response, error in
+                            if let response = response{
+                                onCompleted(Observable.just((response,nil)))
+                            }else{
+                                onCompleted(Observable.just((nil,error!)))
+                            }
+                        }).disposed(by: bag)
+                    }
+                }else{
+                    onCompleted(Observable.just((nil,error!)))
+                }
+            }).disposed(by: bag)
+        }
+    }
+    
+    func verificationService(code: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<Verification>?,Error?)>)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.getVerificationCode, code.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+
+        networkLayer.getResponseJSON(for: url!, method: .get) { dataObservable in
+            dataObservable.subscribe(onNext: { (data,error) in
+                if let responseData = data{
+                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<Verification>?, error: Error?)>) in
+                        observable.subscribe(onNext: { response, error in
+                            if let response = response{
+                                onCompleted(Observable.just((response,nil)))
+                            }else{
+                                onCompleted(Observable.just((nil,error!)))
+                            }
+                        }).disposed(by: bag)
+                    }
+                }else{
+                    onCompleted(Observable.just((nil,error!)))
+                }
+            }).disposed(by: bag)
+        }
+    }
+    
+    func resendCodeService(email: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<Verification>?,Error?)>)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.getResendCode, email.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+
+        networkLayer.getResponseJSON(for: url!, method: .get) { dataObservable in
+            dataObservable.subscribe(onNext: { (data,error) in
+                if let responseData = data{
+                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<Verification>?, error: Error?)>) in
+                        observable.subscribe(onNext: { response, error in
+                            if let response = response{
+                                onCompleted(Observable.just((response,nil)))
+                            }else{
+                                onCompleted(Observable.just((nil,error!)))
+                            }
+                        }).disposed(by: bag)
+                    }
+                }else{
+                    onCompleted(Observable.just((nil,error!)))
+                }
+            }).disposed(by: bag)
+        }
+    }
+    
+    
+}
+
+
+class UserService{
+   
+    func userDetailsService(email: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserDetails>?,Error?)>)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.getUserDetails, email.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+        
+        let headers: HTTPHeaders = UserSessionManager.sharedInstance.setAuthorizationHeader() ?? [:]
+
+        networkLayer.getResponseJSON(for: url!, method: .get, headers: headers) { dataObservable in
+            dataObservable.subscribe(onNext: { (data,error) in
+                if let responseData = data{
+                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<UserDetails>?, error: Error?)>) in
+                        observable.subscribe(onNext: { response, error in
+                            if let response = response{
+                                onCompleted(Observable.just((response,nil)))
+                            }else{
+                                onCompleted(Observable.just((nil,error!)))
+                            }
+                        }).disposed(by: bag)
+                    }
+                }else{
+                    onCompleted(Observable.just((nil,error!)))
+                }
+            }).disposed(by: bag)
+        }
+    }
+    
+    func updateProfileService(email: String, phone: String, name: String, surname: String, birthday: String, address: String, postalCode: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserData>?,Error?)>)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.postProfileUpdate).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+        
+        let params: Parameters = ["name": name, "surname": surname, "email": email, "phone": phone, "birthdaydate": birthday, "Address": address, "postalCode" : postalCode ]
+        let headers: HTTPHeaders = UserSessionManager.sharedInstance.setAuthorizationHeader() ?? [:]
+
+        networkLayer.getResponseJSON(for: url!, method: .post, params: params, headers: headers) { dataObservable in
+            dataObservable.subscribe(onNext: { (data,error) in
+                if let responseData = data{
+                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<UserData>?, error: Error?)>) in
+                        observable.subscribe(onNext: { response, error in
+                            if let response = response{
+                                onCompleted(Observable.just((response,nil)))
+                            }else{
+                                onCompleted(Observable.just((nil,error!)))
+                            }
+                        }).disposed(by: bag)
+                    }
+                }else{
+                    onCompleted(Observable.just((nil,error!)))
+                }
+            }).disposed(by: bag)
+        }
+    }
+    
+}
+
+
+class payerService{
+    
+    fileprivate var bag = DisposeBag()
+    fileprivate let networkLayer = NetworkLayerIMPL()
+    fileprivate let translationLayer = TranslationLayer()
+    
+    
     
 }

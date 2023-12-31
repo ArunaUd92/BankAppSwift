@@ -1,9 +1,8 @@
 //
 //  URLConstants.swift
-//  YTS
+//  ABCBankMobile
 //
-//  Created by Sajith Konara on 4/25/20.
-//  Copyright © 2020 Sajith Konara. All rights reserved.
+//  Created by Aruna Udayanga on 29/12/2023.
 //
 
 import Foundation
@@ -19,6 +18,28 @@ struct URLConstants {
                 return HOST + "/auth/email/login"
             }
             
+            static var postRegister:String{
+                return HOST + "/auth/email/register"
+            }
+            
+            static var getVerificationCode:String{
+                return HOST + "/auth/email/verify/%@"
+            }
+            
+            static var getResendCode:String{
+                return HOST + "/auth/email/resend-verification/%@"
+            }
+            
+            static var getUserDetails:String{
+                return HOST + "/users/user/%@"
+            }
+            
+            static var postProfileUpdate:String{
+                return HOST + "/users/profile/update"
+            }
+            
+            
         }
+        
     }
 }

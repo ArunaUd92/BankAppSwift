@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
     
     //ForgotPassword event button click.
     @IBAction func forgotPasswordButtonTapped(_ sender: Any) {
-
+        
     }
     
     //MARK: Functiona
@@ -59,15 +59,19 @@ class LoginViewController: UIViewController {
                             // Handle the error scenario
                             MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                         } else {
-                            // Here you can update your UI or process the data
                             if statusCode == 403 {
                                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                 let verificationViewController = storyboard.instantiateViewController(withIdentifier: "VerificationViewController") as! VerificationViewController
                                 verificationViewController.modalPresentationStyle = .overFullScreen
+                                verificationViewController.emailAddress = self.emailTextField.text
                                 self.present(verificationViewController, animated: true, completion: nil)
                             } else {
                                 // Handle the success scenario
-                                print("Successfully loaded popular movies.")
+                                // Here you can update your UI or process the data
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                let dashboardTabBarController = storyboard.instantiateViewController(withIdentifier: "DashboardTabBarController") as! DashboardTabBarController
+                                dashboardTabBarController.modalPresentationStyle = .overFullScreen
+                                self.present(dashboardTabBarController, animated: true, completion: nil)
                             }
                         }
                     }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
