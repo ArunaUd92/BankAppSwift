@@ -19,6 +19,13 @@
 		3332BD6C2B4113BF003F15FC /* PayeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332BD6B2B4113BF003F15FC /* PayeeViewController.swift */; };
 		3332BD6E2B411ACC003F15FC /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332BD6D2B411ACC003F15FC /* PaymentViewController.swift */; };
 		3332BD712B41250A003F15FC /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332BD702B41250A003F15FC /* ProfileViewModel.swift */; };
+		3332BD732B41CE44003F15FC /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3332BD722B41CE44003F15FC /* Admin.storyboard */; };
+		3332BD752B41D6C1003F15FC /* PayeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332BD742B41D6C1003F15FC /* PayeeViewModel.swift */; };
+		3332BD772B41D6F9003F15FC /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332BD762B41D6F9003F15FC /* PaymentViewModel.swift */; };
+		3332BD792B41EF98003F15FC /* PayTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332BD782B41EF98003F15FC /* PayTransferViewModel.swift */; };
+		3332BD7B2B41F194003F15FC /* Payee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332BD7A2B41F194003F15FC /* Payee.swift */; };
+		3332BD7D2B426D57003F15FC /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332BD7C2B426D57003F15FC /* Transaction.swift */; };
+		3332BD7F2B427211003F15FC /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332BD7E2B427211003F15FC /* TransactionViewModel.swift */; };
 		3364F6A62B4087A200D68CD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3364F6A52B4087A200D68CD1 /* HomeViewController.swift */; };
 		3364F6A92B40895C00D68CD1 /* RecentTransactionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3364F6A82B40895C00D68CD1 /* RecentTransactionsTableViewCell.swift */; };
 		3364F6AC2B40964B00D68CD1 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3364F6AB2B40964B00D68CD1 /* TransactionViewController.swift */; };
@@ -87,6 +94,13 @@
 		3332BD6B2B4113BF003F15FC /* PayeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayeeViewController.swift; sourceTree = "<group>"; };
 		3332BD6D2B411ACC003F15FC /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		3332BD702B41250A003F15FC /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		3332BD722B41CE44003F15FC /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
+		3332BD742B41D6C1003F15FC /* PayeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayeeViewModel.swift; sourceTree = "<group>"; };
+		3332BD762B41D6F9003F15FC /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		3332BD782B41EF98003F15FC /* PayTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayTransferViewModel.swift; sourceTree = "<group>"; };
+		3332BD7A2B41F194003F15FC /* Payee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payee.swift; sourceTree = "<group>"; };
+		3332BD7C2B426D57003F15FC /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		3332BD7E2B427211003F15FC /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		3364F6A52B4087A200D68CD1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3364F6A82B40895C00D68CD1 /* RecentTransactionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionsTableViewCell.swift; sourceTree = "<group>"; };
 		3364F6AB2B40964B00D68CD1 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +198,7 @@
 			children = (
 				3332BD672B41101B003F15FC /* Cell */,
 				3332BD652B410FD1003F15FC /* PayTransferViewController.swift */,
+				3332BD782B41EF98003F15FC /* PayTransferViewModel.swift */,
 			);
 			path = PayTransfer;
 			sourceTree = "<group>";
@@ -200,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				3332BD6B2B4113BF003F15FC /* PayeeViewController.swift */,
+				3332BD742B41D6C1003F15FC /* PayeeViewModel.swift */,
 			);
 			path = Payee;
 			sourceTree = "<group>";
@@ -208,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				3332BD6D2B411ACC003F15FC /* PaymentViewController.swift */,
+				3332BD762B41D6F9003F15FC /* PaymentViewModel.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -234,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				3364F6AB2B40964B00D68CD1 /* TransactionViewController.swift */,
+				3332BD7E2B427211003F15FC /* TransactionViewModel.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -338,6 +356,8 @@
 				33D516BB2B3FD659005A877A /* Error.swift */,
 				33D516C02B3FF168005A877A /* Register.swift */,
 				33D516C42B40648C005A877A /* Verification.swift */,
+				3332BD7A2B41F194003F15FC /* Payee.swift */,
+				3332BD7C2B426D57003F15FC /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,6 +376,7 @@
 			children = (
 				33F9B64C2B3342F200646B2B /* Main.storyboard */,
 				33F9B6512B3342F400646B2B /* LaunchScreen.storyboard */,
+				3332BD722B41CE44003F15FC /* Admin.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -544,6 +565,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3332BD732B41CE44003F15FC /* Admin.storyboard in Resources */,
 				33F9B6532B3342F400646B2B /* LaunchScreen.storyboard in Resources */,
 				33F9B6502B3342F400646B2B /* Assets.xcassets in Resources */,
 				33F9B64E2B3342F200646B2B /* Main.storyboard in Resources */,
@@ -585,11 +607,13 @@
 				3364F6A92B40895C00D68CD1 /* RecentTransactionsTableViewCell.swift in Sources */,
 				33D516AF2B3F49BA005A877A /* TranslationLayer.swift in Sources */,
 				33F9B64B2B3342F200646B2B /* ViewController.swift in Sources */,
+				3332BD7B2B41F194003F15FC /* Payee.swift in Sources */,
 				3332BD712B41250A003F15FC /* ProfileViewModel.swift in Sources */,
 				33D516B62B3F571D005A877A /* CommonViewModel.swift in Sources */,
 				33F9B6472B3342F200646B2B /* AppDelegate.swift in Sources */,
 				33D516C32B405F71005A877A /* VerificationViewModel.swift in Sources */,
 				33D516932B3F1208005A877A /* LoginViewModel.swift in Sources */,
+				3332BD772B41D6F9003F15FC /* PaymentViewModel.swift in Sources */,
 				3332BD6C2B4113BF003F15FC /* PayeeViewController.swift in Sources */,
 				33D516B22B3F4C51005A877A /* User.swift in Sources */,
 				33D516A82B3F2CA1005A877A /* UIColor+Extensions.swift in Sources */,
@@ -598,8 +622,11 @@
 				3364F6A62B4087A200D68CD1 /* HomeViewController.swift in Sources */,
 				33F9B6492B3342F200646B2B /* SceneDelegate.swift in Sources */,
 				3364F6B72B40E78800D68CD1 /* HomeViewModel.swift in Sources */,
+				3332BD7F2B427211003F15FC /* TransactionViewModel.swift in Sources */,
+				3332BD792B41EF98003F15FC /* PayTransferViewModel.swift in Sources */,
 				3364F6B12B40B04700D68CD1 /* Date+Extensions.swift in Sources */,
 				3332BD692B411229003F15FC /* PayeeTableViewCell.swift in Sources */,
+				3332BD752B41D6C1003F15FC /* PayeeViewModel.swift in Sources */,
 				3364F6B52B40C8D600D68CD1 /* ProfileViewController.swift in Sources */,
 				33D516BC2B3FD659005A877A /* Error.swift in Sources */,
 				33D516902B3EE581005A877A /* SignupViewController.swift in Sources */,
@@ -611,6 +638,7 @@
 				33D5169C2B3F1896005A877A /* VerificationViewController.swift in Sources */,
 				330FAA8C2B33562E008C9DCB /* ReachabilityManager.swift in Sources */,
 				33D516802B3E5548005A877A /* LoginNavigationController.swift in Sources */,
+				3332BD7D2B426D57003F15FC /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

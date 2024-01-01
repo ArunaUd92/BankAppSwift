@@ -58,4 +58,12 @@ class UserSessionManager {
             return nil
         }
     }
+    
+    func removeToken() {
+        UserDefaults.standard.removeObject(forKey: "token")
+    }
+
+    func removeUser() {
+        UserDefaults.standard.removeObject(forKey: "user")
+    }
 }

@@ -55,6 +55,22 @@ class HomeViewController: UIViewController {
             }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
         }
     }
+    
+    func getTransactionList() {
+        homeVM.transactionList {observable in
+            observable.subscribe(onNext: { error in
+                if let error = error {
+                    // Handle the error scenario
+                    MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
+                } else {
+                    // Here you can update your UI or process the data
+                    // Handle the success scenario
+                    self.recentTransactionsTableView.reloadData()
+                   
+                }
+            }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
+        }
+    }
 
 }
 
@@ -64,6 +80,16 @@ extension HomeViewController: UITableViewDataSource  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecentTransactionsTableViewCell", for: indexPath) as! RecentTransactionsTableViewCell
+//        let transaction =  self.homeVM.transactionList[indexPath.row]
+//        cell.lblTransactionType.text = ""
+//        cell.lblSubTitle.text = ""
+//        cell.lblAmount.text = ""
+//        
+//        if let formattedDate = Date().convertDateString("18-09-2023") {
+//            cell.lblDate.text = formattedDate // Output: "18 Sep 2023"
+//        }
+//        
+//        cell.lblAmount.text =  ValidatorHelper.formatAsCurrency(9200.00)
         
         return cell
     }
@@ -77,6 +103,7 @@ extension HomeViewController: UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // return self.homeVM.transactionList.count
         return 10
     }
 }

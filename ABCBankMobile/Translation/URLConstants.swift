@@ -38,7 +38,25 @@ struct URLConstants {
                 return HOST + "/users/profile/update"
             }
             
+            static var postAddPayer:String{
+                return HOST + "/payers/payer/add"
+            }
             
+            static var getPayerList:String{
+                return HOST + "payers/user/%@"
+            }
+            
+            static var deletePayee:String{
+                return HOST + "payers/user/%@"
+            }
+            
+            static var getAllTransactionList:String{
+                return HOST + "payers/user/%@"
+            }
+            
+            static var postTransaction:String{
+                return HOST + "/payers/payer/add"
+            }
         }
         
     }

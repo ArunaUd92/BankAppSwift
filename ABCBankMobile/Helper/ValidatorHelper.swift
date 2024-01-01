@@ -15,4 +15,16 @@ class ValidatorHelper: NSObject {
         return emailTest.evaluate(with: email)
     }
     
+    static func formatAsCurrency(_ amount: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "£"
+        formatter.maximumFractionDigits = 2 // For two decimal places
+        formatter.minimumFractionDigits = 2 // Ensure there are always two decimal places
+        formatter.usesGroupingSeparator = true // For comma separation
+        formatter.locale = Locale(identifier: "en_UK") // Optional: to ensure UK-style formatting
+
+        return formatter.string(from: NSNumber(value: amount)) ?? ""
+    }
+    
 }

@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  PayTransferViewModel.swift
 //  ABCBankMobile
 //
 //  Created by Aruna Udayanga on 31/12/2023.
@@ -8,24 +8,23 @@
 import Foundation
 import RxSwift
 
-class HomeViewModel{
+class PayTransferViewModel{
     
     // MARK: Properties
+    // Properties for storing payee details
+    var payeeList: [Payee] = []
+
     
-    var user:UserDetails? = nil
-    var transactionList: [Transaction] = []
     fileprivate let bag = DisposeBag()
-    fileprivate var userService = UserService()
-    fileprivate var transactionService = TransactionService()
+    fileprivate var payTransferService = PayTransferService()
     
-    
-    func userDetails(onCompleted:@escaping(Observable<Error?>)->Void){
+    func payeeList(onCompleted:@escaping(Observable<Error?>)->Void){
         let user = UserSessionManager.sharedInstance.retrieveUser()
-        userService.userDetailsService(email: user?.email ?? "") { (userDataObservable) in
+        payTransferService.getPayeeListService(uuid: user?.uuid ?? "") { (userDataObservable) in
             userDataObservable.subscribe(onNext: { (userData,error) in
                 if let userInfo = userData{
                     if userInfo.success {
-                        self.user = userInfo.data
+                        self.payeeList = userInfo.data
                         onCompleted(Observable.just(nil))
                     } else {
                         let error = Error(title: "Error", message: UIConstants.ERROR_MESSAGE_RESPONSE_ERROR)
@@ -38,13 +37,11 @@ class HomeViewModel{
         }
     }
     
-    func transactionList(onCompleted:@escaping(Observable<Error?>)->Void){
-        let user = UserSessionManager.sharedInstance.retrieveUser()
-        transactionService.getAllTransactionService(uuid: user?.email ?? "") { (userDataObservable) in
-            userDataObservable.subscribe(onNext: { (userData,error) in
-                if let userInfo = userData{
-                    if userInfo.success {
-                        self.transactionList = userInfo.data
+    func payeeDelete(payee: Payee, onCompleted:@escaping(Observable<Error?>)->Void){
+        payTransferService.deletePayee(uuid: "email") { (registerDataObservable) in
+            registerDataObservable.subscribe(onNext: { (registerData,error) in
+                if let registerInfo = registerData{
+                    if registerInfo.success {
                         onCompleted(Observable.just(nil))
                     } else {
                         let error = Error(title: "Error", message: UIConstants.ERROR_MESSAGE_RESPONSE_ERROR)

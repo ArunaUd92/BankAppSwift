@@ -14,4 +14,6 @@ class UIConstants{
     static let COLOR_APP_GARY = "#555555"
     
     
+    // Error Message
+    static let ERROR_MESSAGE_RESPONSE_ERROR: String = "Something went wrong. Please try again later."
 }

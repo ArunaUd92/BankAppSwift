@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class TransactionViewController: UIViewController {
 
@@ -15,6 +16,9 @@ class TransactionViewController: UIViewController {
     @IBOutlet weak var lblBalance: UILabel!
     @IBOutlet weak var btnExpenses: UIButton!
     @IBOutlet weak var btnEarnings: UIButton!
+    
+    fileprivate var transactionVM = TransactionViewModel()
+    fileprivate let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +49,22 @@ class TransactionViewController: UIViewController {
         selectedButton.setTitleColor(UIColor.init(hexString: UIConstants.COLOR_APP_BLUE), for: .normal)// Selected color
         otherButton.setTitleColor(UIColor.init(hexString: UIConstants.COLOR_APP_GARY), for: .normal)// Non-selected color
     }
+    
+    func getTransactionList() {
+        transactionVM.transactionList {observable in
+            observable.subscribe(onNext: { error in
+                if let error = error {
+                    // Handle the error scenario
+                    MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
+                } else {
+                    // Here you can update your UI or process the data
+                    // Handle the success scenario
+                    self.transactionsTableView.reloadData()
+                   
+                }
+            }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
+        }
+    }
 
 }
 
@@ -54,6 +74,16 @@ extension TransactionViewController: UITableViewDataSource  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecentTransactionsTableViewCell", for: indexPath) as! RecentTransactionsTableViewCell
+//        let transaction =  self.transactionVM.transactionList[indexPath.row]
+//        cell.lblTransactionType.text = ""
+//        cell.lblSubTitle.text = ""
+//        cell.lblAmount.text = ""
+//        
+//        if let formattedDate = Date().convertDateString("18-09-2023") {
+//            cell.lblDate.text = formattedDate // Output: "18 Sep 2023"
+//        }
+//        
+//        cell.lblAmount.text =  ValidatorHelper.formatAsCurrency(9200.00)
         
         return cell
     }
@@ -67,6 +97,7 @@ extension TransactionViewController: UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       // return self.transactionVM.transactionList.count
         return 10
     }
 }
