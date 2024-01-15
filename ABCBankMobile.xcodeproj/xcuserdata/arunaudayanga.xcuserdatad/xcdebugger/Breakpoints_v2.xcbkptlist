@@ -7,110 +7,283 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A82330F0-C9F0-4B39-9B4B-6AB45B558A16"
+            uuid = "66378F71-9BAB-4AD9-8220-64B817215745"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ABCBankMobile/Controllers/Login/LoginViewModel.swift"
+            filePath = "ABCBankMobile/Controllers/Signup/SignupViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "userLoginInfo(onCompleted:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "userRegister(onCompleted:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "A82330F0-C9F0-4B39-9B4B-6AB45B558A16 - 2a18bb74922b1f1f"
+                  uuid = "66378F71-9BAB-4AD9-8220-64B817215745 - e709c03245521d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ABCBankMobile.LoginViewModel.userLoginInfo(onCompleted: (Swift.Int, RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserData&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserData&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.SignupViewModel.userRegister(onCompleted: (RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "ABCBankMobile"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Login/LoginViewModel.swift"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Signup/SignupViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "60">
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "176">
                </Location>
                <Location
-                  uuid = "A82330F0-C9F0-4B39-9B4B-6AB45B558A16 - 4b09c3981a791d0a"
+                  uuid = "66378F71-9BAB-4AD9-8220-64B817215745 - e709c03245521d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserData&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserData&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.LoginViewModel.userLoginInfo(onCompleted: (Swift.Optional&lt;Swift.Int&gt;, RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserData&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserData&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.SignupViewModel.userRegister(onCompleted: (RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "ABCBankMobile"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Login/LoginViewModel.swift"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Signup/SignupViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "332">
+               </Location>
+               <Location
+                  uuid = "66378F71-9BAB-4AD9-8220-64B817215745 - 7847232586dc53e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserRegister&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserRegister&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.SignupViewModel.userRegister(onCompleted: (RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ABCBankMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Signup/SignupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "66378F71-9BAB-4AD9-8220-64B817215745 - 7847232586dc53e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserRegister&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserRegister&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.SignupViewModel.userRegister(onCompleted: (RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ABCBankMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Signup/SignupViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "332">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F4BDEAB-20C8-4486-9A4A-08ED7356211A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ABCBankMobile/Controllers/CommonViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "deletePayee(uuid:onCompleted:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7F4BDEAB-20C8-4486-9A4A-08ED7356211A - 7beeb8ed960f676f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;(data: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.PayTransferService.deletePayee(uuid: Swift.String, onCompleted: (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.DeleteTransaction&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ABCBankMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/CommonViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "528">
+               </Location>
+               <Location
+                  uuid = "7F4BDEAB-20C8-4486-9A4A-08ED7356211A - 7beeb8ed960f676f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;(data: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.PayTransferService.deletePayee(uuid: Swift.String, onCompleted: (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.DeleteTransaction&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ABCBankMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/CommonViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "236">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "321E5F95-2C9D-4EC3-BCFA-3E0EE19B3372"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ABCBankMobile/Controllers/Payment/PaymentViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "paymentProcess()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D512DF6-2C42-4615-9DA3-F85DEECA38BC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ABCBankMobile/Controllers/Payment/PaymentViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "paymentProcess()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "76EE8A33-CD58-4E64-8AB4-D73D3211E006"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ABCBankMobile/Controllers/Payment/PaymentViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "paymentProcess(onCompleted:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "76EE8A33-CD58-4E64-8AB4-D73D3211E006 - 3a38c897ec400cdd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.Transaction&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.PaymentViewModel.paymentProcess(onCompleted: (RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ABCBankMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Payment/PaymentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "76EE8A33-CD58-4E64-8AB4-D73D3211E006 - d88d7221570a77d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.Transaction&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.Transaction&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.PaymentViewModel.paymentProcess(onCompleted: (RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ABCBankMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Payment/PaymentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
                   offsetFromSymbolStart = "164">
                </Location>
-               <Location
-                  uuid = "A82330F0-C9F0-4B39-9B4B-6AB45B558A16 - 4b09c3981a791d0a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserData&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.UserData&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.LoginViewModel.userLoginInfo(onCompleted: (Swift.Optional&lt;Swift.Int&gt;, RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "ABCBankMobile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Login/LoginViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "320">
-               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4715A304-9A63-4EB8-AC58-95F288A86E67"
+            uuid = "7A036DDE-33DE-49B7-96AD-0CEE736145A6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ABCBankMobile/Controllers/Verification/VerificationViewController.swift"
+            filePath = "ABCBankMobile/Controllers/CommonViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "verification()"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "transactionService(amount:reference:from:to:onCompleted:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4715A304-9A63-4EB8-AC58-95F288A86E67 - 1ca621fdab0c5ef2"
+                  uuid = "7A036DDE-33DE-49B7-96AD-0CEE736145A6 - f9c162e5758df9de"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; () in closure #1 (Swift.String, Swift.Bool) -&gt; () in ABCBankMobile.VerificationViewController.verification() -&gt; ()"
+                  symbolName = "ABCBankMobile.TransactionService.transactionService(amount: Swift.String, reference: Swift.String, from: Swift.String, to: Swift.String, onCompleted: (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.Transaction&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "ABCBankMobile"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Verification/VerificationViewController.swift"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/CommonViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "100">
+                  startingLineNumber = "281"
+                  endingLineNumber = "281"
+                  offsetFromSymbolStart = "1608">
                </Location>
                <Location
-                  uuid = "4715A304-9A63-4EB8-AC58-95F288A86E67 - 1ca621fdab0c5ef2"
+                  uuid = "7A036DDE-33DE-49B7-96AD-0CEE736145A6 - 632efed588ece8c6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;ABCBankMobile.Error&gt;) -&gt; () in closure #1 (RxSwift.Observable&lt;Swift.Optional&lt;ABCBankMobile.Error&gt;&gt;) -&gt; () in closure #1 (Swift.String, Swift.Bool) -&gt; () in ABCBankMobile.VerificationViewController.verification() -&gt; ()"
+                  symbolName = "closure #1 (RxSwift.Observable&lt;(data: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.TransactionService.transactionService(amount: Swift.String, reference: Swift.String, from: Swift.String, to: Swift.String, onCompleted: (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.Transaction&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "ABCBankMobile"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Verification/VerificationViewController.swift"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/CommonViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "212">
+                  startingLineNumber = "281"
+                  endingLineNumber = "281"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "7A036DDE-33DE-49B7-96AD-0CEE736145A6 - f9c162e5758df9ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ABCBankMobile.TransactionService.transactionService(amount: Swift.String, reference: Swift.String, from: Swift.String, to: Swift.String, onCompleted: (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.Transaction&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ABCBankMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/CommonViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "280"
+                  endingLineNumber = "280"
+                  offsetFromSymbolStart = "1608">
+               </Location>
+               <Location
+                  uuid = "7A036DDE-33DE-49B7-96AD-0CEE736145A6 - 632efed588ece8e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RxSwift.Observable&lt;(data: Swift.Optional&lt;Foundation.Data&gt;, error: Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; () in ABCBankMobile.TransactionService.transactionService(amount: Swift.String, reference: Swift.String, from: Swift.String, to: Swift.String, onCompleted: (RxSwift.Observable&lt;(Swift.Optional&lt;ABCBankMobile.UserResponse&lt;ABCBankMobile.Transaction&gt;&gt;, Swift.Optional&lt;ABCBankMobile.Error&gt;)&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ABCBankMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/CommonViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "280"
+                  endingLineNumber = "280"
+                  offsetFromSymbolStart = "80">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -118,17 +291,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5CB92ED7-EB33-4547-BF81-4E0DE9653284"
+            uuid = "7DBD3F41-4CCC-4C6F-A3CB-FB415DE98D5F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ABCBankMobile/Controllers/Verification/VerificationViewController.swift"
+            filePath = "ABCBankMobile/Controllers/Payment/PaymentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "verification()"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "paymentProcess()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7DBD3F41-4CCC-4C6F-A3CB-FB415DE98D5F - a24d9afc20e6e0ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ABCBankMobile.PaymentViewController.paymentProcess() -&gt; ()"
+                  moduleName = "ABCBankMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Payment/PaymentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "2408">
+               </Location>
+               <Location
+                  uuid = "7DBD3F41-4CCC-4C6F-A3CB-FB415DE98D5F - edd2f47bdbbd746b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.Bool) -&gt; () in ABCBankMobile.PaymentViewController.paymentProcess() -&gt; ()"
+                  moduleName = "ABCBankMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arunaudayanga/Documents/Software%20Architecture%20and%20Programming/App/ABCBankMobile/ABCBankMobile/Controllers/Payment/PaymentViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

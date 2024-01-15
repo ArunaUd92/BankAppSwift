@@ -16,22 +16,19 @@ extension Date{
         return  dateFormatter.string(from: todayDate)
     }
     
-    func convertDateString(_ dateString: String) -> String? {
-        // DateFormatter to convert the string to a Date object
+    func convertDateString(from input: String) -> String? {
         let inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = "dd-MM-yyyy"
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 
-        // Convert the string to a Date
-        guard let date = inputFormatter.date(from: dateString) else {
+        guard let date = inputFormatter.date(from: input) else {
             return nil
         }
 
-        // DateFormatter to convert the Date object back to a string
         let outputFormatter = DateFormatter()
-        outputFormatter.dateFormat = "dd MMM yyyy" // e.g., "18 Sep 2023"
-
-        // Convert the Date back to a string
+        outputFormatter.dateFormat = "dd MMM yyyy"
+        
         return outputFormatter.string(from: date)
     }
+    
 
 }

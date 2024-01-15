@@ -43,19 +43,19 @@ struct URLConstants {
             }
             
             static var getPayerList:String{
-                return HOST + "payers/user/%@"
+                return HOST + "/payers/user/%@"
             }
             
             static var deletePayee:String{
-                return HOST + "payers/user/%@"
+                return HOST + "/payers/payer/%@"
             }
             
             static var getAllTransactionList:String{
-                return HOST + "payers/user/%@"
+                return HOST + "/transactions/user/%@"
             }
             
             static var postTransaction:String{
-                return HOST + "/payers/payer/add"
+                return HOST + "/transactions/payment/add"
             }
         }
         

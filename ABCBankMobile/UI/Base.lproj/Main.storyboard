@@ -157,7 +157,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+£ 343.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iho-kF-YBM">
                                                     <rect key="frame" x="296" y="19" width="77" height="22"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
-                                                    <color key="textColor" systemColor="systemGreenColor"/>
+                                                    <color key="textColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZN-pS-PlQ">
@@ -261,30 +261,26 @@
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="280"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="In &amp; Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ml-Sa-94V">
-                                        <rect key="frame" x="19" y="73" width="122" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In &amp; Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ml-Sa-94V">
+                                        <rect key="frame" x="20" y="75" width="122" height="44"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="32"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Acc Number - 343434343 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqm-XC-lRk">
-                                        <rect key="frame" x="19" y="122" width="237" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acc Number - 343434343 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqm-XC-lRk">
+                                        <rect key="frame" x="20" y="129" width="237" height="28"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="£ 9,200.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxa-gz-dLL">
-                                        <rect key="frame" x="19" y="235" width="133" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£ 9,200.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxa-gz-dLL">
+                                        <rect key="frame" x="20" y="231" width="133" height="39"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Active Total Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT0-4o-Wff">
-                                        <rect key="frame" x="19" y="200" width="182" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active Total Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT0-4o-Wff">
+                                        <rect key="frame" x="20" y="196" width="182" height="28"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -293,10 +289,19 @@
                                 <color key="backgroundColor" red="0.01176470588" green="0.1019607843" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="pxa-gz-dLL" secondAttribute="bottom" constant="10" id="4y7-as-NOQ"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iqm-XC-lRk" secondAttribute="trailing" constant="20" id="7If-Rj-ivp"/>
+                                    <constraint firstItem="pxa-gz-dLL" firstAttribute="top" secondItem="cT0-4o-Wff" secondAttribute="bottom" constant="7" id="8f5-Pt-Bam"/>
+                                    <constraint firstItem="cT0-4o-Wff" firstAttribute="leading" secondItem="iqm-XC-lRk" secondAttribute="leading" id="9Wm-l4-GMx"/>
+                                    <constraint firstItem="pxa-gz-dLL" firstAttribute="leading" secondItem="cT0-4o-Wff" secondAttribute="leading" id="DyA-qH-krC"/>
                                     <constraint firstItem="HBO-Yt-G1D" firstAttribute="top" secondItem="lum-I5-WPB" secondAttribute="top" id="HtA-jw-zSH"/>
                                     <constraint firstAttribute="bottom" secondItem="HBO-Yt-G1D" secondAttribute="bottom" id="OMk-4d-mPa"/>
+                                    <constraint firstItem="6Ml-Sa-94V" firstAttribute="top" secondItem="lum-I5-WPB" secondAttribute="top" constant="75" id="PlS-Al-MGE"/>
                                     <constraint firstAttribute="trailing" secondItem="HBO-Yt-G1D" secondAttribute="trailing" id="QRa-TV-mZl"/>
+                                    <constraint firstItem="iqm-XC-lRk" firstAttribute="leading" secondItem="6Ml-Sa-94V" secondAttribute="leading" id="WMt-Ip-fHA"/>
                                     <constraint firstItem="HBO-Yt-G1D" firstAttribute="leading" secondItem="lum-I5-WPB" secondAttribute="leading" id="bE4-W9-vq1"/>
+                                    <constraint firstItem="iqm-XC-lRk" firstAttribute="top" secondItem="6Ml-Sa-94V" secondAttribute="bottom" constant="10" id="e0j-SO-8Gu"/>
+                                    <constraint firstItem="6Ml-Sa-94V" firstAttribute="leading" secondItem="lum-I5-WPB" secondAttribute="leading" constant="20" id="e1e-s0-kRl"/>
                                     <constraint firstAttribute="height" constant="280" id="lbb-HL-jCy"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -545,6 +550,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="delete"/>
+                                                    <connections>
+                                                        <action selector="deleteItemButtonTapped:" destination="Qr1-MA-E6V" eventType="touchUpInside" id="yrN-TR-EBi"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -716,7 +724,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addPayeeButtonTapped:" destination="taJ-bt-qT5" eventType="touchUpInside" id="g06-RB-PnK"/>
-                                    <action selector="verificationButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpInside" id="AkL-qk-lqy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*All fields are mandatory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yx1-ON-jWr">
@@ -924,7 +931,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="editProfileButtonTapped:" destination="KSZ-di-c6M" eventType="touchUpInside" id="QvO-XQ-34i"/>
-                                                            <action selector="verificationButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpInside" id="NVZ-Hn-vjD"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQC-BU-bGx">
@@ -957,7 +963,6 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="signoutButtonTapped:" destination="KSZ-di-c6M" eventType="touchUpInside" id="8eG-CW-Yi5"/>
-                                                                    <action selector="verificationButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpInside" id="k3v-J0-XNH"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to sign out?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzn-1y-Tch">
@@ -1575,7 +1580,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="verificationButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpInside" id="4uA-vI-OtR"/>
+                                            <action selector="verificationButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpOutside" id="fLh-12-4PL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0x-eT-II9">
@@ -1598,6 +1603,9 @@
                                         <color key="tintColor" red="0.01176470588" green="0.1019607843" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpInside" id="5eZ-xR-RoQ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verification code on your email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4o-bv-gHv">
                                         <rect key="frame" x="66.666666666666686" y="172" width="295" height="29"/>
@@ -1787,7 +1795,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="payButtonTapped:" destination="z1j-jE-ho9" eventType="touchUpInside" id="eEp-qR-One"/>
-                                    <action selector="verificationButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpInside" id="1GO-jr-RMC"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80A-nr-dvd">
@@ -1866,7 +1873,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345 | 4545454" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xN5-p5-auH">
-                                                <rect key="frame" x="106" y="34" width="105" height="20"/>
+                                                <rect key="frame" x="106" y="34.666666666666657" width="105" height="20"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>

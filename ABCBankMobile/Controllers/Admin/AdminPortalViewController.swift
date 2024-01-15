@@ -1,20 +1,19 @@
 //
-//  ViewController.swift
+//  AdminPortalViewController.swift
 //  ABCBankMobile
 //
-//  Created by Aruna Udayanga on 20/12/2023.
+//  Created by Aruna Udayanga on 14/01/2024.
 //
 
 import UIKit
 
-
-class ViewController: UIViewController {
+class AdminPortalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
+    
 
 }
-

@@ -35,9 +35,3 @@ struct User: Codable {
     var email: String
 }
 
-struct UserDetails: Codable {
-    var uuid: String?
-    var name: String?
-    var surname: String?
-    var email: String?
-}

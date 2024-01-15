@@ -8,7 +8,8 @@
 import UIKit
 import RxSwift
 
-class PayTransferViewController: UIViewController {
+class PayTransferViewController: BaseViewController {
+
 
     // MARK: Outlets
     @IBOutlet weak var payeesTableView: UITableView!
@@ -38,19 +39,23 @@ class PayTransferViewController: UIViewController {
     @IBAction func addPayeeButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let payeeViewController = storyboard.instantiateViewController(withIdentifier: "PayeeViewController") as! PayeeViewController
+        payeeViewController.payeeViewDelegate = self
         payeeViewController.modalPresentationStyle = .overFullScreen
         self.present(payeeViewController, animated: true, completion: nil)
     }
     
     func getPayeeList() {
+        self.showProgress()
         payTransferVM.payeeList {observable in
             observable.subscribe(onNext: { error in
                 if let error = error {
                     // Handle the error scenario
+                    self.hideProgress()
                     MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                 } else {
                     // Here you can update your UI or process the data
                     // Handle the success scenario
+                    self.hideProgress()
                     self.payeesTableView.reloadData()
                    
                 }
@@ -59,16 +64,19 @@ class PayTransferViewController: UIViewController {
     }
     
     func postDeletePayee(payee: Payee) {
+        self.showProgress()
         payTransferVM.payeeDelete(payee: payee) {observable in
             observable.subscribe(onNext: { error in
                 if let error = error {
                     // Handle the error scenario
+                    self.hideProgress()
                     MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                 } else {
                     // Here you can update your UI or process the data
                     // Handle the success scenario
-                    self.payeesTableView.reloadData()
-                   
+                    self.hideProgress()
+                    MessageViewPopUp.showMessage(type: MessageViewPopUp.SuccessMessage, title: "Success", message: "Payee successfully deleted.")
+                    self.getPayeeList()
                 }
             }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
         }
@@ -96,10 +104,10 @@ extension PayTransferViewController: UITableViewDataSource  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PayeeTableViewCell", for: indexPath) as! PayeeTableViewCell
-//        let payee =  self.payTransferVM.payeeList[indexPath.row]
-//        cell.payeeCellViewDelegate = self
-//        cell.lblAccountNumber.text = "\(payee.code ?? "") \(payee.accountNumber ?? "")"
-//        cell.lblPayeeName.text = payee.accountNumber ?? ""
+        let payee =  self.payTransferVM.payeeList[indexPath.row]
+        cell.payeeCellViewDelegate = self
+        cell.lblAccountNumber.text = "\(payee.code ?? "") | \(payee.accountNumber ?? "")"
+        cell.lblPayeeName.text = payee.accountNumber ?? ""
         return cell
     }
     
@@ -112,8 +120,7 @@ extension PayTransferViewController: UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // return self.payTransferVM.payeeList.count
-        return 10
+        return self.payTransferVM.payeeList.count
     }
 }
 
@@ -121,9 +128,10 @@ extension PayTransferViewController: UITableViewDataSource  {
 extension PayTransferViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      //  let payee =  self.payTransferVM.payeeList[indexPath.row]
+        let payee =  self.payTransferVM.payeeList[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let paymentViewController = storyboard.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
+        paymentViewController.payeeObject = payee
         paymentViewController.modalPresentationStyle = .overFullScreen
         self.present(paymentViewController, animated: true, completion: nil)
     }
@@ -141,5 +149,11 @@ extension PayTransferViewController: PayeeCellViewDelegate {
         let payee =  self.payTransferVM.payeeList[indexPath.row]
         self.showAlertDeletePayee(payee: payee)
         
+    }
+}
+
+extension PayTransferViewController : PayeeViewDelegate {
+    func refreshView(status: Bool) {
+        self.getPayeeList()
     }
 }

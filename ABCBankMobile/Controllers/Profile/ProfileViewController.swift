@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
 
     // MARK: Outlets
     @IBOutlet weak var txtAccountNumber: UITextField!
@@ -30,7 +30,11 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setUserProfileData()
         setupDatePicker()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getUserData()
     }
     
     func setupDatePicker() {
@@ -57,6 +61,24 @@ class ProfileViewController: UIViewController {
         self.showAlertSignout()
     }
     
+    func getUserData() {
+        self.showProgress()
+        profileVM.userDetails {observable in
+            observable.subscribe(onNext: { error in
+                if let error = error {
+                    // Handle the error scenario
+                    self.hideProgress()
+                    MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
+                } else {
+                    // Here you can update your UI or process the data
+                    // Handle the success scenario
+                    self.hideProgress()
+                    self.setUserProfileData()
+                }
+            }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
+        }
+    }
+    
     private func editProfileUpdate(){
         
         profileVM.name = self.txtFirstName.text
@@ -69,20 +91,24 @@ class ProfileViewController: UIViewController {
         
         profileVM.profileUpdateValidation(validationHandler:{ errorMessage, isStatus in
             if(isStatus){
+                self.showProgress()
                 profileVM.userProfileUpdate {observable in
                     observable.subscribe(onNext: { error in
                         if let error = error {
                             // Handle the error scenario
+                            self.hideProgress()
                             MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                         } else {
                             // Here you can update your UI or process the data
                             // Handle the success scenario
+                            self.hideProgress()
                             
                         }
                     }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
                 }
                 
             } else {
+                self.hideProgress()
                 MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: errorMessage)
             }
         });
@@ -91,14 +117,15 @@ class ProfileViewController: UIViewController {
     
     private func setUserProfileData(){
         
-//        let userDetails = UserSessionManager.sharedInstance.retrieveUser()
-//        self.txtFirstName.text = userDetails?.name
-//        self.txtLastName.text = userDetails?.surname
-//        self.txtEmail.text = userDetails?.email
-//        self.txtPhone.text =
+        let user = profileVM.user
+        self.txtFirstName.text = user?.name
+        self.txtLastName.text = user?.surname
+        self.txtEmail.text = user?.email
+        self.txtAccountNumber.text = user?.bankAccount?.accountNumber ?? ""
+//        self.txtPhone.text = user.
 //        self.txtAddress.text =
 //        self.txtPostalCode.text =
-//        self.txtBirthday.text =
+//        self.txtBirthday.text = user.
     }
 
 
@@ -110,7 +137,7 @@ class ProfileViewController: UIViewController {
             // This code will be executed when the 'OK' button is tapped
             self.profileVM.userSignout()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let signupViewController = storyboard.instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
+            let signupViewController = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController") as! LoginNavigationController
             signupViewController.modalPresentationStyle = .overFullScreen
             self.present(signupViewController, animated: true, completion: nil)
             

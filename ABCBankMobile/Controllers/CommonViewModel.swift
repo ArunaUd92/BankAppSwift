@@ -38,7 +38,7 @@ class CommonViewModel{
         }
     }
     
-    func registerResponse(email: String, password: String, name: String, surname: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserData>?,Error?)>)->Void){
+    func registerResponse(email: String, password: String, name: String, surname: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserRegister>?,Error?)>)->Void){
         let url = URL(string: String(format: URLConstants.Api.Path.postRegister).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         
         let params: Parameters = ["email": email, "password": password, "name": name, "surname": surname]
@@ -46,12 +46,12 @@ class CommonViewModel{
         networkLayer.getResponseJSON(for: url!, method: .post, params: params) { dataObservable in
             dataObservable.subscribe(onNext: { (data,error) in
                 if let responseData = data{
-                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<UserData>?, error: Error?)>) in
+                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<UserRegister>?, error: Error?)>) in
                         observable.subscribe(onNext: { response, error in
                             if let response = response{
                                 onCompleted(Observable.just((response,nil)))
                             }else{
-                                onCompleted(Observable.just((nil,error!)))
+                                onCompleted(Observable.just((nil,error ?? nil)))
                             }
                         }).disposed(by: bag)
                     }
@@ -64,8 +64,10 @@ class CommonViewModel{
     
     func verificationService(code: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<Verification>?,Error?)>)->Void){
         let url = URL(string: String(format: URLConstants.Api.Path.getVerificationCode, code.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+        
+        let headers: HTTPHeaders = UserSessionManager.sharedInstance.setAuthorizationHeader() ?? [:]
 
-        networkLayer.getResponseJSON(for: url!, method: .get) { dataObservable in
+        networkLayer.getResponseJSON(for: url!, method: .get, headers: headers) { dataObservable in
             dataObservable.subscribe(onNext: { (data,error) in
                 if let responseData = data{
                     translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<Verification>?, error: Error?)>) in
@@ -73,7 +75,7 @@ class CommonViewModel{
                             if let response = response{
                                 onCompleted(Observable.just((response,nil)))
                             }else{
-                                onCompleted(Observable.just((nil,error!)))
+                                onCompleted(Observable.just((nil,error ?? nil)))
                             }
                         }).disposed(by: bag)
                     }
@@ -125,7 +127,7 @@ class UserService{
                             if let response = response{
                                 onCompleted(Observable.just((response,nil)))
                             }else{
-                                onCompleted(Observable.just((nil,error!)))
+                                onCompleted(Observable.just((nil,error ?? nil)))
                             }
                         }).disposed(by: bag)
                     }
@@ -217,16 +219,15 @@ class PayTransferService{
         }
     }
     
-    func deletePayee(uuid: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserData>?,Error?)>)->Void){
-        let url = URL(string: String(format: URLConstants.Api.Path.deletePayee).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+    func deletePayee(uuid: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<DeleteTransaction>?,Error?)>)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.deletePayee, uuid.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         
-        let params: Parameters = ["name": uuid ]
         let headers: HTTPHeaders = UserSessionManager.sharedInstance.setAuthorizationHeader() ?? [:]
 
-        networkLayer.getResponseJSON(for: url!, method: .post, params: params, headers: headers) { dataObservable in
+        networkLayer.getResponseJSON(for: url!, method: .delete, headers: headers) { dataObservable in
             dataObservable.subscribe(onNext: { (data,error) in
                 if let responseData = data{
-                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<UserData>?, error: Error?)>) in
+                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<DeleteTransaction>?, error: Error?)>) in
                         observable.subscribe(onNext: { response, error in
                             if let response = response{
                                 onCompleted(Observable.just((response,nil)))
@@ -270,10 +271,10 @@ class TransactionService{
         }
     }
     
-    func transactionService(amount: String, reference: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<Transaction>?,Error?)>)->Void){
+    func transactionService(amount: String, reference: String, from: String, to: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<Transaction>?,Error?)>)->Void){
         let url = URL(string: String(format: URLConstants.Api.Path.postTransaction).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         
-        let params: Parameters = ["amount": amount, "reference": reference]
+        let params: Parameters = ["from": from, "to": to, "amount": amount, "reference": reference]
         let headers: HTTPHeaders = UserSessionManager.sharedInstance.setAuthorizationHeader() ?? [:]
 
         networkLayer.getResponseJSON(for: url!, method: .post, params: params, headers: headers) { dataObservable in

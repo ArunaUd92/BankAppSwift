@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class SignupViewController: UIViewController {
+class SignupViewController: BaseViewController {
 
     // MARK: Outlets
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -52,24 +52,29 @@ class SignupViewController: UIViewController {
         
         signupVM.signupValidation(validationHandler:{ errorMessage, isStatus in
             if(isStatus){
+                self.showProgress()
                 signupVM.userRegister {observable in
                     observable.subscribe(onNext: { error in
                         if let error = error {
                             // Handle the error scenario
+                            self.hideProgress()
                             MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                         } else {
                             // Here you can update your UI or process the data
-                            // Handle the success scenario
+                            // Handle the success scenario     
+                            self.hideProgress()
+                            MessageViewPopUp.showMessage(type: MessageViewPopUp.SuccessMessage, title: "Success", message: "Your account has been created successfully")
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                            loginViewController.modalPresentationStyle = .overFullScreen
-                            self.present(loginViewController, animated: true, completion: nil)
-                            print("Successfully loaded data.")
+                            let verificationViewController = storyboard.instantiateViewController(withIdentifier: "VerificationViewController") as! VerificationViewController
+                            verificationViewController.modalPresentationStyle = .overFullScreen
+                            verificationViewController.emailAddress = self.emailTextField.text
+                            self.present(verificationViewController, animated: true, completion: nil)
                         }
                     }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
                 }
                 
             } else {
+                self.hideProgress()
                 MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: errorMessage)
             }
         });

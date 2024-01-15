@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class VerificationViewController: UIViewController {
+class VerificationViewController: BaseViewController {
 
     // MARK: Outlets
     @IBOutlet weak var verificationCodeTextField: UITextField!
@@ -35,6 +35,10 @@ class VerificationViewController: UIViewController {
         self.resendCode()
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
     //MARK: Functiona
     private func verification(){
@@ -43,20 +47,28 @@ class VerificationViewController: UIViewController {
         
         verificationVM.verificationValidation(validationHandler:{ errorMessage, isStatus in
             if(isStatus){
+                self.showProgress()
                 verificationVM.verificationAccount {observable in
                     observable.subscribe(onNext: { error in
                         if let error = error {
                             // Handle the error scenario
+                            self.hideProgress()
                             MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                         } else {
                             // Here you can update your UI or process the data
                             // Handle the success scenario
+                            self.hideProgress()
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                            loginViewController.modalPresentationStyle = .overFullScreen
+                            self.present(loginViewController, animated: true, completion: nil)
                             
                         }
                     }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
                 }
                 
             } else {
+                self.hideProgress()
                 MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: errorMessage)
             }
         });
@@ -65,15 +77,17 @@ class VerificationViewController: UIViewController {
     private func resendCode(){
         
         verificationVM.verificationCode = self.emailAddress
-        
+        self.showProgress()
         verificationVM.verificationAccount {observable in
             observable.subscribe(onNext: { error in
                 if let error = error {
                     // Handle the error scenario
+                    self.hideProgress()
                     MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                 } else {
                     // Here you can update your UI or process the data
                     // Handle the success scenario
+                    self.hideProgress()
                     
                 }
             }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift

@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     // MARK: Outlets
     @IBOutlet weak var lblUserName: UILabel!
@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.getUserData()
+        self.getTransactionList()
     }
     
     func setupUI(){
@@ -37,19 +38,23 @@ class HomeViewController: UIViewController {
     
     func setUserData(){
         self.lblUserName.text = "\(homeVM.user?.name ?? "") \(homeVM.user?.surname ?? "")"
-//        self.lblAccountNumber.text = ""
-//        self.lblBalance.text = ""
+        self.lblAccountNumber.text = "Account Number: \(homeVM.user?.bankAccount?.accountNumber ?? "")"
+        let amountConvertToDouble = Double(homeVM.user?.bankAccount?.balance ?? "")
+        self.lblBalance.text = ValidatorHelper.formatAsCurrency(amountConvertToDouble ?? 0.00)
     }
     
     func getUserData() {
+        self.showProgress()
         homeVM.userDetails {observable in
             observable.subscribe(onNext: { error in
                 if let error = error {
                     // Handle the error scenario
+                    self.hideProgress()
                     MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                 } else {
                     // Here you can update your UI or process the data
                     // Handle the success scenario
+                    self.hideProgress()
                     self.setUserData()
                 }
             }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
@@ -57,19 +62,32 @@ class HomeViewController: UIViewController {
     }
     
     func getTransactionList() {
+        self.showProgress()
         homeVM.transactionList {observable in
             observable.subscribe(onNext: { error in
                 if let error = error {
                     // Handle the error scenario
+                    self.hideProgress()
                     MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                 } else {
                     // Here you can update your UI or process the data
                     // Handle the success scenario
+                    self.hideProgress()
                     self.recentTransactionsTableView.reloadData()
                    
                 }
             }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
         }
+    }
+    
+    private func createEmptyMessageLabel() -> UILabel {
+        let messageLabel = UILabel()
+        messageLabel.text = "No transactions available"
+        messageLabel.textAlignment = .center
+        messageLabel.textColor = .gray
+        messageLabel.numberOfLines = 0
+        messageLabel.font = UIFont.systemFont(ofSize: 16)
+        return messageLabel
     }
 
 }
@@ -80,16 +98,22 @@ extension HomeViewController: UITableViewDataSource  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecentTransactionsTableViewCell", for: indexPath) as! RecentTransactionsTableViewCell
-//        let transaction =  self.homeVM.transactionList[indexPath.row]
-//        cell.lblTransactionType.text = ""
-//        cell.lblSubTitle.text = ""
-//        cell.lblAmount.text = ""
-//        
-//        if let formattedDate = Date().convertDateString("18-09-2023") {
-//            cell.lblDate.text = formattedDate // Output: "18 Sep 2023"
-//        }
-//        
-//        cell.lblAmount.text =  ValidatorHelper.formatAsCurrency(9200.00)
+        let transaction =  self.homeVM.transactionList[indexPath.row]
+        let amountConvertToDouble = Double(transaction.amount ?? "")
+        if transaction.type == "plus" {
+            cell.lblTransactionType.text = "Received"
+            cell.lblAmount.text = "+ \(ValidatorHelper.formatAsCurrency(amountConvertToDouble ?? 0.00))"
+            cell.lblAmount.textColor =  UIColor.init(hexString: UIConstants.COLOR_TRANSACTION_PLUS)
+        } else {
+            cell.lblTransactionType.text = "Transfered"
+            cell.lblAmount.text = "- \(ValidatorHelper.formatAsCurrency(amountConvertToDouble ?? 0.00))"
+            cell.lblAmount.textColor =  UIColor.init(hexString: UIConstants.COLOR_TRANSACTION_MINE)
+        }
+        
+        cell.lblSubTitle.text = transaction.reference
+        if let formattedDate = Date().convertDateString(from: transaction.date ?? "") {
+            cell.lblDate.text = formattedDate // Output: "18 Sep 2023"
+        }
         
         return cell
     }
@@ -103,8 +127,12 @@ extension HomeViewController: UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // return self.homeVM.transactionList.count
-        return 10
+        let count = self.homeVM.transactionList.count
+        self.recentTransactionsTableView.backgroundView = nil
+        if count == 0 {
+            self.recentTransactionsTableView.backgroundView = self.createEmptyMessageLabel()
+        }
+        return count
     }
 }
 

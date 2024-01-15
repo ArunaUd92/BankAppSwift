@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
 
     // MARK: Outlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -50,24 +50,24 @@ class LoginViewController: UIViewController {
         
         loginVM.email = self.emailTextField.text
         loginVM.password = self.passwordTextField.text
-        
+
         loginVM.loginValidation(validationHandler:{ errorMessage, isStatus in
             if(isStatus){
+                self.showProgress()
                 loginVM.userLoginInfo { statusCode, observable in
                     observable.subscribe(onNext: { error in
                         if let error = error {
                             // Handle the error scenario
+                            self.hideProgress()
                             MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                         } else {
                             if statusCode == 403 {
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                let verificationViewController = storyboard.instantiateViewController(withIdentifier: "VerificationViewController") as! VerificationViewController
-                                verificationViewController.modalPresentationStyle = .overFullScreen
-                                verificationViewController.emailAddress = self.emailTextField.text
-                                self.present(verificationViewController, animated: true, completion: nil)
+                                self.hideProgress()
+                                MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: "Email or Password does not match, please try again.")
                             } else {
                                 // Handle the success scenario
                                 // Here you can update your UI or process the data
+                                self.hideProgress()
                                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                 let dashboardTabBarController = storyboard.instantiateViewController(withIdentifier: "DashboardTabBarController") as! DashboardTabBarController
                                 dashboardTabBarController.modalPresentationStyle = .overFullScreen
@@ -78,6 +78,7 @@ class LoginViewController: UIViewController {
                 }
                 
             } else {
+                self.hideProgress()
                 MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: errorMessage)
             }
         });

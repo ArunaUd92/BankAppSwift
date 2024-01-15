@@ -38,7 +38,7 @@ class PayTransferViewModel{
     }
     
     func payeeDelete(payee: Payee, onCompleted:@escaping(Observable<Error?>)->Void){
-        payTransferService.deletePayee(uuid: "email") { (registerDataObservable) in
+        payTransferService.deletePayee(uuid: payee.uuid ?? "") { (registerDataObservable) in
             registerDataObservable.subscribe(onNext: { (registerData,error) in
                 if let registerInfo = registerData{
                     if registerInfo.success {

@@ -8,7 +8,11 @@
 import UIKit
 import RxSwift
 
-class PayeeViewController: UIViewController {
+protocol  PayeeViewDelegate : AnyObject {
+    func refreshView(status : Bool )
+}
+
+class PayeeViewController: BaseViewController {
 
     // MARK: Outlets
     // UI elements connected from storyboard
@@ -22,6 +26,8 @@ class PayeeViewController: UIViewController {
     fileprivate var payeeVM = PayeeViewModel()
     // DisposeBag for managing memory in RxSwift
     fileprivate let bag = DisposeBag()
+    
+    weak var payeeViewDelegate: PayeeViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,16 +61,20 @@ class PayeeViewController: UIViewController {
         payeeVM.validation(validationHandler:{ errorMessage, isStatus in
             if(isStatus){
                 // If validation is successful, attempt to add payee
+                self.showProgress()
                 payeeVM.addPayee {observable in
                     // Observing the result from ViewModel
                     observable.subscribe(onNext: { error in
                         if let error = error {
                             // Displays an error message if there's an error
+                            self.hideProgress()
                             MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                         } else {
                             // Displays a success message if payee is added successfully
-                            MessageViewPopUp.showMessage(type: MessageViewPopUp.SuccessMessage, title: "Success", message: "Payee successfully added. ")
+                            self.hideProgress()
+                            MessageViewPopUp.showMessage(type: MessageViewPopUp.SuccessMessage, title: "Success", message: "Payee successfully added.")
                             // Dismisses the current view controller
+                            self.payeeViewDelegate?.refreshView(status: true)
                             self.dismiss(animated: true, completion: nil)
                         }
                     }).disposed(by: self.bag) // Disposing the subscription to prevent memory leaks
@@ -72,6 +82,7 @@ class PayeeViewController: UIViewController {
                 
             } else {
                 // If validation fails, show an error message
+                self.hideProgress()
                 MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: errorMessage)
             }
         });

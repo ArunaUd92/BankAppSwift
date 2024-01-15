@@ -39,7 +39,7 @@ class VerificationViewModel{
                         onCompleted(Observable.just(error))
                     }
                 }else{
-                    onCompleted(Observable.just(error!))
+                    onCompleted(Observable.just(error ?? nil))
                 }
             }).disposed(by: self.bag)
         }

@@ -21,7 +21,7 @@ class NetworkLayerIMPL:NetworkLayer{
     func getResponseJSON(for url: URL, method: HTTPMethod, params: Parameters? = nil, headers: HTTPHeaders? = nil,  onCompleted: @escaping (Observable<(data: Data?, error: Error?)>) -> Void) {
         ServiceManagerIMPL.APIRequest(url: url, method: method, params: params, headers: headers) { responseObservable in
             responseObservable.subscribe(onNext: { responseData,responseCode in
-                if responseCode == 200{
+                if responseCode == 200 || responseCode == 201{
                     onCompleted(Observable.just((responseData!,nil)))
                 }else if responseCode == 999{
                     let error = Error(title: "No Connectivity!", message: "You are appear to be offline.")

@@ -12,6 +12,8 @@ class UIConstants{
     //Hex Colors
     static let COLOR_APP_BLUE = "#031A6E"
     static let COLOR_APP_GARY = "#555555"
+    static let COLOR_TRANSACTION_PLUS = "34C759"
+    static let COLOR_TRANSACTION_MINE = "FF2D55"
     
     
     // Error Message

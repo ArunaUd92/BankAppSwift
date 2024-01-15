@@ -32,7 +32,7 @@ class HomeViewModel{
                         onCompleted(Observable.just(error))
                     }
                 }else{
-                    onCompleted(Observable.just(error!))
+                    onCompleted(Observable.just(error ?? nil))
                 }
             }).disposed(by: self.bag)
         }
@@ -40,7 +40,7 @@ class HomeViewModel{
     
     func transactionList(onCompleted:@escaping(Observable<Error?>)->Void){
         let user = UserSessionManager.sharedInstance.retrieveUser()
-        transactionService.getAllTransactionService(uuid: user?.email ?? "") { (userDataObservable) in
+        transactionService.getAllTransactionService(uuid: user?.uuid ?? "") { (userDataObservable) in
             userDataObservable.subscribe(onNext: { (userData,error) in
                 if let userInfo = userData{
                     if userInfo.success {
