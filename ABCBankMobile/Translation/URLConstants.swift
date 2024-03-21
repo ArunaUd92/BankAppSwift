@@ -57,6 +57,14 @@ struct URLConstants {
             static var postTransaction:String{
                 return HOST + "/transactions/payment/add"
             }
+            
+            static var getCustomerList:String{
+                return HOST + "/users/list"
+            }
+            
+            static var deleteCustomer:String{
+                return HOST + "/users/user/%@"
+            }
         }
         
     }

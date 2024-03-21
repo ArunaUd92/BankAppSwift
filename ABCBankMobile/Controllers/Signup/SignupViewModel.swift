@@ -18,7 +18,7 @@ class SignupViewModel{
     var surName: String? = ""
     
     fileprivate let bag = DisposeBag()
-    fileprivate var commonViewModel = CommonViewModel()
+    fileprivate var commonServiceModel = CommonServiceModel()
     
     // MARK: Functions
     // signup validation
@@ -62,7 +62,7 @@ class SignupViewModel{
     }
     
     func userRegister(onCompleted:@escaping(Observable<Error?>)->Void){
-        commonViewModel.registerResponse(email: email ?? "", password: password ?? "", name: name ?? "", surname: surName ?? "") { (registerDataObservable) in
+        commonServiceModel.registerService(email: email ?? "", password: password ?? "", name: name ?? "", surname: surName ?? "") { (registerDataObservable) in
             registerDataObservable.subscribe(onNext: { (registerData,error) in
                 if let registerInfo = registerData{
                     if registerInfo.success {

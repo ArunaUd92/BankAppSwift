@@ -75,6 +75,12 @@
 		336C444E2B55DE2300329644 /* NVActivityIndicatorAnimationOrbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C442C2B55DE2300329644 /* NVActivityIndicatorAnimationOrbit.swift */; };
 		336C44522B55DE3300329644 /* NVActivityIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C44502B55DE3300329644 /* NVActivityIndicatorPresenter.swift */; };
 		336C44532B55DE3300329644 /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C44512B55DE3300329644 /* NVActivityIndicatorViewable.swift */; };
+		336C44562B583E6900329644 /* AllCustomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C44552B583E6900329644 /* AllCustomerListViewController.swift */; };
+		336C44592B58424800329644 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C44582B58424800329644 /* CustomerTableViewCell.swift */; };
+		336C445B2B5843A400329644 /* AllCustomerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C445A2B5843A400329644 /* AllCustomerViewModel.swift */; };
+		336C445D2B588D0B00329644 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C445C2B588D0B00329644 /* Customer.swift */; };
+		336C445F2B59FDBF00329644 /* AdminEditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C445E2B59FDBF00329644 /* AdminEditProfileViewController.swift */; };
+		336C44622B5A011300329644 /* AdminEditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336C44612B5A011300329644 /* AdminEditProfileViewModel.swift */; };
 		33D5167D2B3E54C7005A877A /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D5167C2B3E54C7005A877A /* DashboardTabBarController.swift */; };
 		33D516802B3E5548005A877A /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D5167F2B3E5548005A877A /* LoginNavigationController.swift */; };
 		33D516832B3ED791005A877A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 33D516822B3ED791005A877A /* IQKeyboardManagerSwift */; };
@@ -92,7 +98,7 @@
 		33D516AF2B3F49BA005A877A /* TranslationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D516AE2B3F49BA005A877A /* TranslationLayer.swift */; };
 		33D516B22B3F4C51005A877A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D516B12B3F4C51005A877A /* User.swift */; };
 		33D516B42B3F4E52005A877A /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D516B32B3F4E52005A877A /* URLConstants.swift */; };
-		33D516B62B3F571D005A877A /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D516B52B3F571D005A877A /* CommonViewModel.swift */; };
+		33D516B62B3F571D005A877A /* CommonServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D516B52B3F571D005A877A /* CommonServiceModel.swift */; };
 		33D516B82B3FA940005A877A /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D516B72B3FA93F005A877A /* UserSessionManager.swift */; };
 		33D516BC2B3FD659005A877A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D516BB2B3FD659005A877A /* Error.swift */; };
 		33D516BE2B3FE1DF005A877A /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D516BD2B3FE1DF005A877A /* SignupViewModel.swift */; };
@@ -192,6 +198,12 @@
 		336C442C2B55DE2300329644 /* NVActivityIndicatorAnimationOrbit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationOrbit.swift; sourceTree = "<group>"; };
 		336C44502B55DE3300329644 /* NVActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
 		336C44512B55DE3300329644 /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
+		336C44552B583E6900329644 /* AllCustomerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCustomerListViewController.swift; sourceTree = "<group>"; };
+		336C44582B58424800329644 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
+		336C445A2B5843A400329644 /* AllCustomerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCustomerViewModel.swift; sourceTree = "<group>"; };
+		336C445C2B588D0B00329644 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		336C445E2B59FDBF00329644 /* AdminEditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditProfileViewController.swift; sourceTree = "<group>"; };
+		336C44612B5A011300329644 /* AdminEditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditProfileViewModel.swift; sourceTree = "<group>"; };
 		33D5167C2B3E54C7005A877A /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		33D5167F2B3E5548005A877A /* LoginNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
 		33D516852B3ED867005A877A /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -207,7 +219,7 @@
 		33D516AE2B3F49BA005A877A /* TranslationLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationLayer.swift; sourceTree = "<group>"; };
 		33D516B12B3F4C51005A877A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		33D516B32B3F4E52005A877A /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
-		33D516B52B3F571D005A877A /* CommonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
+		33D516B52B3F571D005A877A /* CommonServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonServiceModel.swift; sourceTree = "<group>"; };
 		33D516B72B3FA93F005A877A /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
 		33D516BB2B3FD659005A877A /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		33D516BD2B3FE1DF005A877A /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
@@ -360,6 +372,8 @@
 		336C43FC2B541AE200329644 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				336C44602B59FDC500329644 /* AdminEditProfile */,
+				336C44542B583E4000329644 /* AllCustomerList */,
 				336C43FD2B541B0600329644 /* AdminPortalViewController.swift */,
 			);
 			path = Admin;
@@ -427,10 +441,37 @@
 			path = Extended;
 			sourceTree = "<group>";
 		};
+		336C44542B583E4000329644 /* AllCustomerList */ = {
+			isa = PBXGroup;
+			children = (
+				336C44572B58422600329644 /* Cell */,
+				336C44552B583E6900329644 /* AllCustomerListViewController.swift */,
+				336C445A2B5843A400329644 /* AllCustomerViewModel.swift */,
+			);
+			path = AllCustomerList;
+			sourceTree = "<group>";
+		};
+		336C44572B58422600329644 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				336C44582B58424800329644 /* CustomerTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		336C44602B59FDC500329644 /* AdminEditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				336C445E2B59FDBF00329644 /* AdminEditProfileViewController.swift */,
+				336C44612B5A011300329644 /* AdminEditProfileViewModel.swift */,
+			);
+			path = AdminEditProfile;
+			sourceTree = "<group>";
+		};
 		33D5167E2B3E54FC005A877A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				33D516B52B3F571D005A877A /* CommonViewModel.swift */,
+				33D516B52B3F571D005A877A /* CommonServiceModel.swift */,
 				3332BD6F2B411AE6003F15FC /* Payment */,
 				3332BD6A2B41139C003F15FC /* Payee */,
 				3332BD642B410F8C003F15FC /* PayTransfer */,
@@ -516,6 +557,7 @@
 				3332BD7A2B41F194003F15FC /* Payee.swift */,
 				3332BD7C2B426D57003F15FC /* Transaction.swift */,
 				335875E22B458DEE00D1EE85 /* UserAccountData.swift */,
+				336C445C2B588D0B00329644 /* Customer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -756,6 +798,7 @@
 				33D5168D2B3EE32E005A877A /* LoginViewController.swift in Sources */,
 				336C44012B55D4F500329644 /* NVActivityIndicator.swift in Sources */,
 				3332BD6E2B411ACC003F15FC /* PaymentViewController.swift in Sources */,
+				336C44592B58424800329644 /* CustomerTableViewCell.swift in Sources */,
 				33D516BE2B3FE1DF005A877A /* SignupViewModel.swift in Sources */,
 				33D516882B3ED867005A877A /* RoundButton.swift in Sources */,
 				33D516892B3ED867005A877A /* RoundUIView.swift in Sources */,
@@ -763,6 +806,7 @@
 				336C443B2B55DE2300329644 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				33D516C52B40648C005A877A /* Verification.swift in Sources */,
 				336C44532B55DE3300329644 /* NVActivityIndicatorViewable.swift in Sources */,
+				336C445F2B59FDBF00329644 /* AdminEditProfileViewController.swift in Sources */,
 				336C44442B55DE2300329644 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				336C44522B55DE3300329644 /* NVActivityIndicatorPresenter.swift in Sources */,
 				3364F6AF2B40AB9100D68CD1 /* UIConstants.swift in Sources */,
@@ -780,9 +824,10 @@
 				336C444D2B55DE2300329644 /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				3332BD7B2B41F194003F15FC /* Payee.swift in Sources */,
 				3332BD712B41250A003F15FC /* ProfileViewModel.swift in Sources */,
+				336C44562B583E6900329644 /* AllCustomerListViewController.swift in Sources */,
 				336C44402B55DE2300329644 /* NVActivityIndicatorAnimationCircleStrokeSpin.swift in Sources */,
 				336C442E2B55DE2300329644 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
-				33D516B62B3F571D005A877A /* CommonViewModel.swift in Sources */,
+				33D516B62B3F571D005A877A /* CommonServiceModel.swift in Sources */,
 				33F9B6472B3342F200646B2B /* AppDelegate.swift in Sources */,
 				336C44392B55DE2300329644 /* NVActivityIndicatorAnimationSemiCircleSpin.swift in Sources */,
 				33D516C32B405F71005A877A /* VerificationViewModel.swift in Sources */,
@@ -800,6 +845,7 @@
 				33D5168A2B3ED867005A877A /* RoundedCornerView.swift in Sources */,
 				3364F6A62B4087A200D68CD1 /* HomeViewController.swift in Sources */,
 				33F9B6492B3342F200646B2B /* SceneDelegate.swift in Sources */,
+				336C445D2B588D0B00329644 /* Customer.swift in Sources */,
 				336C44432B55DE2300329644 /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				336C444E2B55DE2300329644 /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
 				3364F6B72B40E78800D68CD1 /* HomeViewModel.swift in Sources */,
@@ -821,6 +867,7 @@
 				336C44322B55DE2300329644 /* NVActivityIndicatorAnimationBallDoubleBounce.swift in Sources */,
 				336C44412B55DE2300329644 /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				33D516BC2B3FD659005A877A /* Error.swift in Sources */,
+				336C445B2B5843A400329644 /* AllCustomerViewModel.swift in Sources */,
 				33D516902B3EE581005A877A /* SignupViewController.swift in Sources */,
 				336C44362B55DE2300329644 /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				336C44492B55DE2300329644 /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
@@ -828,6 +875,7 @@
 				3332BD662B410FD2003F15FC /* PayTransferViewController.swift in Sources */,
 				330FAA832B335326008C9DCB /* ServiceManager.swift in Sources */,
 				3364F6AC2B40964B00D68CD1 /* TransactionViewController.swift in Sources */,
+				336C44622B5A011300329644 /* AdminEditProfileViewModel.swift in Sources */,
 				336C44342B55DE2300329644 /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
 				33D5169A2B3F184B005A877A /* MessageViewPopUp.swift in Sources */,
 				336C44082B55DE1A00329644 /* NVActivityIndicatorShape.swift in Sources */,

@@ -487,8 +487,8 @@
                                 <rect key="frame" x="0.0" y="117" width="428" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ Add a payee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gb-jX-l8M">
-                                        <rect key="frame" x="131" y="18.666666666666657" width="166" height="33"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                        <rect key="frame" x="141.33333333333331" y="20.666666666666657" width="145.33333333333331" height="29"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="21"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1580,7 +1580,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="verificationButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpOutside" id="fLh-12-4PL"/>
+                                            <action selector="verificationButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpInside" id="WiO-Up-wif"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0x-eT-II9">
@@ -1589,9 +1589,6 @@
                                         <color key="tintColor" red="0.01176470588" green="0.1019607843" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Resend Code"/>
-                                        <connections>
-                                            <action selector="resendCodeButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpInside" id="h3F-cz-foy"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCj-Cd-AcD">
                                         <rect key="frame" x="164" y="452.99999999999994" width="100" height="35"/>
@@ -1604,7 +1601,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Back"/>
                                         <connections>
-                                            <action selector="backButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpInside" id="5eZ-xR-RoQ"/>
+                                            <action selector="backButtonTapped:" destination="AUP-iD-Izz" eventType="touchUpInside" id="ffL-0C-V6M"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verification code on your email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4o-bv-gHv">
@@ -1677,11 +1674,11 @@
             </objects>
             <point key="canvasLocation" x="824" y="-1762"/>
         </scene>
-        <!--Card-->
+        <!--Payment-->
         <scene sceneID="0JV-0H-5tB">
             <objects>
                 <navigationController navigationBarHidden="YES" id="Fu5-iD-wex" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Card" image="tb_card" id="Tj3-gg-Q9w"/>
+                    <tabBarItem key="tabBarItem" title="Payment" image="tb_card" id="Tj3-gg-Q9w"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fSs-8N-kuS">
                         <autoresizingMask key="autoresizingMask"/>

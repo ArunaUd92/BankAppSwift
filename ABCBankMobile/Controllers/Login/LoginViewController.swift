@@ -67,11 +67,19 @@ class LoginViewController: BaseViewController {
                             } else {
                                 // Handle the success scenario
                                 // Here you can update your UI or process the data
+                                
                                 self.hideProgress()
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                let dashboardTabBarController = storyboard.instantiateViewController(withIdentifier: "DashboardTabBarController") as! DashboardTabBarController
-                                dashboardTabBarController.modalPresentationStyle = .overFullScreen
-                                self.present(dashboardTabBarController, animated: true, completion: nil)
+                                if !self.loginVM.isAdminStatus {
+                                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let dashboardTabBarController = storyboard.instantiateViewController(withIdentifier: "DashboardTabBarController") as! DashboardTabBarController
+                                    dashboardTabBarController.modalPresentationStyle = .overFullScreen
+                                    self.present(dashboardTabBarController, animated: true, completion: nil)
+                                } else {
+                                    let storyboard = UIStoryboard(name: "Admin", bundle: nil)
+                                    let AdminPortalViewController = storyboard.instantiateViewController(withIdentifier: "AdminPortalViewController") as! AdminPortalViewController
+                                    AdminPortalViewController.modalPresentationStyle = .overFullScreen
+                                    self.present(AdminPortalViewController, animated: true, completion: nil)
+                                }
                             }
                         }
                     }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift

@@ -11,6 +11,7 @@ import RxSwift
 class ProfileViewController: BaseViewController {
 
     // MARK: Outlets
+    // Text fields for user's profile information.
     @IBOutlet weak var txtAccountNumber: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtFirstName: UITextField!
@@ -21,22 +22,28 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var txtBirthday: UITextField!
     
     // MARK: Properties
+    // Date picker for selecting the birthday.
     let datePicker = UIDatePicker()
+    // ViewModel instance for managing profile data.
     fileprivate var profileVM = ProfileViewModel()
+    // DisposeBag for managing the RxSwift observables.
     fileprivate let bag = DisposeBag()
     
     
+    // Called when the view controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUserProfileData()
-        setupDatePicker()
+        setUserProfileData() // Populating initial user data in the view.
+        setupDatePicker() // Initializing the date picker for birthday field.
     }
     
+    // Called just before the view controller's view is displayed.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getUserData()
+        self.getUserData() // Fetches and updates user data.
     }
     
+    // Sets up the date picker for the birthday text field.
     func setupDatePicker() {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
@@ -44,40 +51,43 @@ class ProfileViewController: BaseViewController {
         txtBirthday.inputView = datePicker
     }
     
+    // Updates the birthday text field when the date picker value changes.
     @objc func dateChanged(datePicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy" // Set your desired format
+        dateFormatter.dateFormat = "MM/dd/yyyy" // Desired date format.
         txtBirthday.text = dateFormatter.string(from: datePicker.date)
     }
 
+    // MARK: Button event actions
 
-    // MARK: Button event action
-    //Edit profile event button click.
+    // Action for the 'Edit Profile' button tap.
     @IBAction func editProfileButtonTapped(_ sender: Any) {
-        self.editProfileUpdate()
+        self.editProfileUpdate() // Initiates the profile update process.
     }
     
+    // Action for the 'Sign Out' button tap.
     @IBAction func signoutButtonTapped(_ sender: Any) {
-        self.showAlertSignout()
+        self.showAlertSignout() // Shows the sign-out confirmation alert.
     }
     
+    // Fetches user data and updates the view.
     func getUserData() {
-        self.showProgress()
+        self.showProgress() // Shows a loading indicator.
         profileVM.userDetails {observable in
             observable.subscribe(onNext: { error in
                 if let error = error {
-                    // Handle the error scenario
+                    // Handles error scenario.
                     self.hideProgress()
                     MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: error.message)
                 } else {
-                    // Here you can update your UI or process the data
-                    // Handle the success scenario
+                    // Updates UI with user data on successful fetch.
                     self.hideProgress()
                     self.setUserProfileData()
                 }
-            }).disposed(by: self.bag) // Assuming 'bag' is a DisposeBag for RxSwift
+            }).disposed(by: self.bag) // Disposing of the subscription to avoid memory leaks.
         }
     }
+    
     
     private func editProfileUpdate(){
         
@@ -122,10 +132,6 @@ class ProfileViewController: BaseViewController {
         self.txtLastName.text = user?.surname
         self.txtEmail.text = user?.email
         self.txtAccountNumber.text = user?.bankAccount?.accountNumber ?? ""
-//        self.txtPhone.text = user.
-//        self.txtAddress.text =
-//        self.txtPostalCode.text =
-//        self.txtBirthday.text = user.
     }
 
 

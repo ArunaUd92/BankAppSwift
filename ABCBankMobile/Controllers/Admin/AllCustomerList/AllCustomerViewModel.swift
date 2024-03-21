@@ -1,31 +1,31 @@
 //
-//  PayTransferViewModel.swift
+//  AllCustomerViewModel.swift
 //  ABCBankMobile
 //
-//  Created by Aruna Udayanga on 31/12/2023.
+//  Created by Aruna Udayanga on 17/01/2024.
 //
 
 import Foundation
 import RxSwift
 import PDFKit
 
-class PayTransferViewModel{
+class AllCustomerViewModel{
     
     // MARK: Properties
     // Properties for storing payee details
-    var payeeList: [Payee] = []
+    var customerList: CustomerList? = nil
 
     
     fileprivate let bag = DisposeBag()
-    fileprivate var payTransferService = PayTransferService()
+    fileprivate var adminService = AdminService()
     
-    func payeeList(onCompleted:@escaping(Observable<Error?>)->Void){
-        let user = UserSessionManager.sharedInstance.retrieveUser()
-        payTransferService.getPayeeListService(uuid: user?.uuid ?? "") { (userDataObservable) in
+    func getCustomerList(onCompleted:@escaping(Observable<Error?>)->Void){
+        adminService.getCustomerListService() { (userDataObservable) in
             userDataObservable.subscribe(onNext: { (userData,error) in
                 if let userInfo = userData{
                     if userInfo.success {
-                        self.payeeList = userInfo.data
+                            self.customerList = userInfo.data
+                        
                         onCompleted(Observable.just(nil))
                     } else {
                         let error = Error(title: "Error", message: UIConstants.ERROR_MESSAGE_RESPONSE_ERROR)
@@ -38,8 +38,8 @@ class PayTransferViewModel{
         }
     }
     
-    func payeeDelete(payee: Payee, onCompleted:@escaping(Observable<Error?>)->Void){
-        payTransferService.deletePayee(uuid: payee.uuid ?? "") { (registerDataObservable) in
+    func customerDelete(customerData: Customer, onCompleted:@escaping(Observable<Error?>)->Void){
+        adminService.deleteCustomer(uuid: customerData.user?.uuid ?? "") { (registerDataObservable) in
             registerDataObservable.subscribe(onNext: { (registerData,error) in
                 if let registerInfo = registerData{
                     if registerInfo.success {

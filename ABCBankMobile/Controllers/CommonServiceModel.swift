@@ -12,9 +12,9 @@ fileprivate var bag = DisposeBag()
 fileprivate let networkLayer = NetworkLayerIMPL()
 fileprivate let translationLayer = TranslationLayer()
 
-class CommonViewModel{
+class CommonServiceModel{
 
-    func loginResponse(email: String, password: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserData>?,Error?)>)->Void){
+    func loginService(email: String, password: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserData>?,Error?)>)->Void){
         let url = URL(string: String(format: URLConstants.Api.Path.postLogin).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         
         let params: Parameters = ["email": email, "password": password]
@@ -38,7 +38,7 @@ class CommonViewModel{
         }
     }
     
-    func registerResponse(email: String, password: String, name: String, surname: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserRegister>?,Error?)>)->Void){
+    func registerService(email: String, password: String, name: String, surname: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserRegister>?,Error?)>)->Void){
         let url = URL(string: String(format: URLConstants.Api.Path.postRegister).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         
         let params: Parameters = ["email": email, "password": password, "name": name, "surname": surname]
@@ -166,34 +166,42 @@ class UserService{
 }
 
 
-class PayTransferService{
-    
-    
-    func addPayeeService(name: String, bankName: String, accountNumber: String, code: String, user: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<UserData>?,Error?)>)->Void){
+class PayTransferService {
+    // Function to add a payee
+    func addPayeeService(name: String, bankName: String, accountNumber: String, code: String, user: String, onCompleted: @escaping (_ observale: Observable<(UserResponse<UserData>?, Error?)>) -> Void) {
+        // Prepare the URL for the API call, with percent encoding to handle special characters
         let url = URL(string: String(format: URLConstants.Api.Path.postAddPayer).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
-        
+        // Prepare the parameters for the request
         let params: Parameters = ["name": name, "bankName": bankName, "accountNumber": accountNumber, "code": code, "user": user ]
+        // Set the HTTP headers, including authorization headers
         let headers: HTTPHeaders = UserSessionManager.sharedInstance.setAuthorizationHeader() ?? [:]
-
+        
+        // Make a network request using the provided URL, method, parameters, and headers
         networkLayer.getResponseJSON(for: url!, method: .post, params: params, headers: headers) { dataObservable in
-            dataObservable.subscribe(onNext: { (data,error) in
-                if let responseData = data{
+            // Subscribe to the observable to handle the response
+            dataObservable.subscribe(onNext: { (data, error) in
+                if let responseData = data {
+                    // If data is received, use the translation layer to parse it
                     translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<UserData>?, error: Error?)>) in
+                        // Subscribe to the observable to handle the parsed data
                         observable.subscribe(onNext: { response, error in
-                            if let response = response{
-                                onCompleted(Observable.just((response,nil)))
-                            }else{
-                                onCompleted(Observable.just((nil,error!)))
+                            if let response = response {
+                                // If the response is successful, pass it to the completion handler
+                                onCompleted(Observable.just((response, nil)))
+                            } else {
+                                // If there's an error in the response, pass the error to the completion handler
+                                onCompleted(Observable.just((nil, error!)))
                             }
-                        }).disposed(by: bag)
+                        }).disposed(by: bag) // Dispose of the subscription to prevent memory leaks
                     }
-                }else{
-                    onCompleted(Observable.just((nil,error!)))
+                } else {
+                    // If there's an error in the initial network request, pass the error to the completion handler
+                    onCompleted(Observable.just((nil, error!)))
                 }
-            }).disposed(by: bag)
+            }).disposed(by: bag) // Dispose of the subscription to prevent memory leaks
         }
     }
-    
+
     
     func getPayeeListService(uuid: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<[Payee]>?,Error?)>)->Void){
         let url = URL(string: String(format: URLConstants.Api.Path.getPayerList, uuid.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
@@ -281,6 +289,57 @@ class TransactionService{
             dataObservable.subscribe(onNext: { (data,error) in
                 if let responseData = data{
                     translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<Transaction>?, error: Error?)>) in
+                        observable.subscribe(onNext: { response, error in
+                            if let response = response{
+                                onCompleted(Observable.just((response,nil)))
+                            }else{
+                                onCompleted(Observable.just((nil,error!)))
+                            }
+                        }).disposed(by: bag)
+                    }
+                }else{
+                    onCompleted(Observable.just((nil,error!)))
+                }
+            }).disposed(by: bag)
+        }
+    }
+}
+
+class AdminService{
+    
+    func getCustomerListService(onCompleted:@escaping (_ observale:Observable<(UserResponse<CustomerList>?,Error?)>)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.getCustomerList).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+        
+        let headers: HTTPHeaders = UserSessionManager.sharedInstance.setAuthorizationHeader() ?? [:]
+
+        networkLayer.getResponseJSON(for: url!, method: .get, headers: headers) { dataObservable in
+            dataObservable.subscribe(onNext: { (data,error) in
+                if let responseData = data{
+                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<CustomerList>?, error: Error?)>) in
+                        observable.subscribe(onNext: { response, error in
+                            if let response = response{
+                                onCompleted(Observable.just((response,nil)))
+                            }else{
+                                onCompleted(Observable.just((nil,error!)))
+                            }
+                        }).disposed(by: bag)
+                    }
+                }else{
+                    onCompleted(Observable.just((nil,error!)))
+                }
+            }).disposed(by: bag)
+        }
+    }
+    
+    func deleteCustomer(uuid: String, onCompleted:@escaping (_ observale:Observable<(UserResponse<DeleteTransaction>?,Error?)>)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.deleteCustomer, uuid.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+        
+        let headers: HTTPHeaders = UserSessionManager.sharedInstance.setAuthorizationHeader() ?? [:]
+
+        networkLayer.getResponseJSON(for: url!, method: .delete, headers: headers) { dataObservable in
+            dataObservable.subscribe(onNext: { (data,error) in
+                if let responseData = data{
+                    translationLayer.translationObject(from: responseData) { (observable: Observable<(response: UserResponse<DeleteTransaction>?, error: Error?)>) in
                         observable.subscribe(onNext: { response, error in
                             if let response = response{
                                 onCompleted(Observable.just((response,nil)))

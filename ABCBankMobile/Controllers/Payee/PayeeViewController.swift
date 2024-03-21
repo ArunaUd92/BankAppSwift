@@ -50,7 +50,6 @@ class PayeeViewController: BaseViewController {
     // MARK: Functions
     // Function to add a new payee
     private func addPayee(){
-        
         // Assigns user input from text fields to the ViewModel properties
         payeeVM.name = self.nameTextField.text
         payeeVM.bankName = self.bankNameTextField.text
@@ -86,8 +85,6 @@ class PayeeViewController: BaseViewController {
                 MessageViewPopUp.showMessage(type: MessageViewPopUp.ErrorMessage, title: "Error", message: errorMessage)
             }
         });
-        
     }
-    
 }
 

@@ -33,5 +33,6 @@ struct User: Codable {
     var name: String
     var surname: String
     var email: String
+    var roles: [String]
 }
 
