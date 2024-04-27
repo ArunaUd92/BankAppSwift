@@ -8,7 +8,6 @@ The simple iOS app is written in Swift 5.
 ![](https://github.com/ArunaUd92/BankAppSwift/blob/main/Images/Transaction%20Screen.png?raw=true)
 ![](https://github.com/ArunaUd92/BankAppSwift/blob/main/Images/Payment%20Screen.png?raw=true)
 ![](https://github.com/ArunaUd92/BankAppSwift/blob/main/Images/Payment%20Screen%202.png?raw=true)
-![](https://github.com/ArunaUd92/BankAppSwift/blob/main/Images/Profile%20Screen.png?raw=true)
 
 
 ## Supports
